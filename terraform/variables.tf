@@ -1,6 +1,5 @@
-
 variable "aws_region" {
-  description = "AWS region for deployment"
+  description = "AWS region"
   type        = string
   default     = "ap-south-1"
 }
@@ -17,14 +16,32 @@ variable "container_port" {
   default     = 8000
 }
 
-variable "cpu" {
+variable "task_cpu" {
   description = "Fargate CPU units"
   type        = number
   default     = 256
 }
 
-variable "memory" {
+variable "task_memory" {
   description = "Fargate memory in MiB"
   type        = number
   default     = 512
+}
+
+variable "github_owner" {
+  description = "GitHub username or organization"
+  type        = string
+  default     = "Yuvanesh-P"
+}
+
+variable "github_repo" {
+  description = "GitHub repository name"
+  type        = string
+  default     = "taskflow-api-aws-ecs-ecr"
+}
+
+variable "github_branch" {
+  description = "GitHub deployment branch"
+  type        = string
+  default     = "main"
 }

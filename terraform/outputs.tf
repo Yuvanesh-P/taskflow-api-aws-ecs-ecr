@@ -1,6 +1,15 @@
+output "alb_dns_name" {
+  description = "AWS-generated ALB DNS URL (HTTP)"
+  value       = "http://${aws_lb.app.dns_name}"
+}
+
+output "alb_dns_hostname" {
+  description = "ALB DNS hostname"
+  value       = aws_lb.app.dns_name
+}
 
 output "ecr_repository_url" {
-  description = "ECR repository URL for the Docker image"
+  description = "ECR repository URL"
   value       = aws_ecr_repository.app.repository_url
 }
 
@@ -15,11 +24,11 @@ output "ecs_service_name" {
 }
 
 output "github_actions_role_arn" {
-  description = "IAM role ARN for GitHub Actions OIDC"
+  description = "GitHub Actions IAM role ARN"
   value       = aws_iam_role.github_actions.arn
 }
 
 output "aws_region" {
-  description = "AWS deployment region"
+  description = "AWS region"
   value       = var.aws_region
 }
